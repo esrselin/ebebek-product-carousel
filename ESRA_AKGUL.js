@@ -1,36 +1,51 @@
  if(window.location.pathname !== "/")
-     console.log("wrong page")
- else
- {
+    console.log("wrong page")
+else
+{
+
 
 function getData(url) {
   fetch(url)
     .then((respose) => respose.json())
-    .then((data) =>
+    .then((data) => {
       data.forEach((item) => {
-        const card = `
-          <div class="carousel-item">
-            <img src="${item.img}" alt="Product Image"/>
-            <p><strong>${item.brand}</strong> - ${item.name}</p>
-            <p>${item.price} TL</p>
-          </div>
+        let priceHTML;
+        if (item.price === item.original_price) {
+          priceHTML = `<span class="new-price">${item.price} TL</span>`;
+        } else {
+          priceHTML = `
+            <span class="old-price">${item.original_price} TL</span>
+            <span class="new-price">${item.price} TL</span>
+          `;
+        }
+
+        const productCard = document.createElement("div");
+        productCard.className = "carousel-item";
+
+        productCard.innerHTML = `
+          <img src="${item.img}" alt="Product Image"/>
+          <p><strong>${item.brand}</strong> - ${item.name}</p>
+          <div class="price">${priceHTML}</div>
         `;
 
-        document.querySelector('.carousel-container').innerHTML += card;
-      })
-    );
+        document.querySelector(".carousel-container").appendChild(productCard);
+
+        productCard.addEventListener("click", () => {
+          window.open(item.url, "_blank");
+        });
+      });
+    });
 }
 
+
 const carouselBar = document.createElement('div');
-const title = document.createElement("h2");
-title.textContent = "Beğenebileceğinizi düşündüklerimiz";
-carouselBar.appendChild(title);
 
 carouselBar.id = 'ebebek-carousel';
 
 carouselBar.innerHTML = `
-  <h2>Beğenebileceğinizi düşündüklerimiz</h2>
-  <div class="carousel-container"></div>
+<h2>Beğenebileceğinizi düşündüklerimiz</h2>
+<div class="carousel-container"></div>
+
 `;
 
 document.body.appendChild(carouselBar);
