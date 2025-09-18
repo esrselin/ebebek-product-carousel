@@ -1,13 +1,11 @@
 # E-Bebek Carousel Product
 
-Bu proje, **e-bebek** sitesine benzer şekilde bir ürün vitrin (carousel) bileşeni oluşturmaktadır.  
+Bu proje, **e-bebek** sitesine benzer şekilde carousel bileşeni oluşturmaktadır.  
 Amaç, kullanıcıya API üzerinden gelen ürünleri şık bir şekilde listelemek, ürün detaylarını göstermek ve kullanıcıların favori ürünlerini tarayıcı **localStorage** üzerinde saklamaktır.  
 
----
 
 ![Carousel Ekran Görüntüsü](./ebebek-carousel.PNG)
 
----
 
 ## Özellikler
 
@@ -20,7 +18,6 @@ Amaç, kullanıcıya API üzerinden gelen ürünleri şık bir şekilde listelem
 * Favoriler de **localStorage** üzerinde tutulur, sayfa yenilendiğinde korunur  
 * Sepet butonu (simülasyon amaçlı, tıklanabilir ama işlevsel değil)  
 
----
 
 ## Kullanılan Teknolojiler
 
@@ -40,8 +37,6 @@ Amaç, kullanıcıya API üzerinden gelen ürünleri şık bir şekilde listelem
 * **JSON**  
   * Ürün verisi kaynağı  
 
----
-
 ## Proje Yapısı
 
 * **IIFE (Immediately Invoked Function Expression):**  
@@ -59,12 +54,12 @@ Amaç, kullanıcıya API üzerinden gelen ürünleri şık bir şekilde listelem
   * `toggleFavorite()` : Favori ekleme/çıkarma.  
   * `isFavorite()` : Ürün favorilerde mi değil mi kontrol eder.  
 
----
 
 ## Nasıl Çalıştırılır?
 
-1. Bu kodu `carousel.js` dosyasına kaydet.  
-2. `index.html` içinde `</body>` etiketinden önce şunu ekle:  
+1. Denemek için [e-bebek](https://www.e-bebek.com/) sitesini açıp, tarayıcı konsoluna bu kodu yapıştırabilirsin.  
+
+2. Kendi projen içinde kullanmak istersen kodu `carousel.js` dosyasına kaydet ve `index.html` dosyanda `</body>` etiketinden hemen önce şu satırı ekle:  
 
    ```html
    <script src="carousel.js"></script>
