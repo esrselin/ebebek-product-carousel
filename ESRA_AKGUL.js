@@ -162,7 +162,7 @@
   font-size: 12px;
   font-weight: 600;
   margin: 0 8px 0 0;
-  text-decoration: line-through;
+  text-decoration: none;
   display: inline-block;
 }
 
